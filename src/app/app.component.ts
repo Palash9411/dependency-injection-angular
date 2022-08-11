@@ -12,9 +12,14 @@ import { LoggerService } from './service/logger.service';
     // provide : LoggerService ,useClass : ExperimentalLoggerService
     // return new ExperimentalLoggerService 
     // provide : LoggerService ,useExisting : ExperimentalLoggerService
-    provide : LoggerService ,useValue : LegacyLogger
+    provide : LoggerService ,useClass : ExperimentalLoggerService  
     
   }]
+    // {
+    //   provide : LoggerService ,
+    //   useValue : LegacyLogger ,
+    //   multi : true 
+    // }]
 })
 export class AppComponent implements OnInit {
   title = 'dependency-injection-indepth';
@@ -22,7 +27,9 @@ export class AppComponent implements OnInit {
               private experimentalLogger : ExperimentalLoggerService) { } ; 
 
   ngOnInit(): void {
-    this.logger.prefix = 'App component' ; 
+  //  console.log(this.logger)
+
+    // this.logger.prefix = 'App component' ; 
     this.logger.log('App init')
     
 

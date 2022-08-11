@@ -15,6 +15,7 @@ export class LoggerService implements Logger{
   prefix: string = "root" ;
 
   log(message:string):void{
+    debugger
     console.log(`${this.prefix} : ${message}`)
   }
 }
